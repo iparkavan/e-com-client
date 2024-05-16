@@ -9,7 +9,7 @@ const useAddToCart = () => {
       return cartService.postCart(prodId)
     }, 
     onSuccess: () => {
-      queryClient.invalidateQueries(["add-to-cart"])
+      queryClient.invalidateQueries({queryKey:["add-to-cart"]})
     }
   })
 }

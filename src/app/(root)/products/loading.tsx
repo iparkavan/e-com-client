@@ -1,5 +1,4 @@
 import React from "react";
-import { useGetProducts } from "../../hooks/product-hooks";
 
 const Loading = () => {
   return (

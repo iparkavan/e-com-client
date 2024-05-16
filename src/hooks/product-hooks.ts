@@ -10,7 +10,7 @@ const useAddProduct = (token: string) => {
       return productServices.addProduct(data, token)
     }, 
     onSuccess: () => {
-      queryClient.invalidateQueries(["products"])
+      queryClient.invalidateQueries({queryKey:["products"]})
     }
   })
 }
@@ -42,7 +42,7 @@ const useUpdateProduct = (token: string) => {
       return productServices.updateProduct(data, token)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["update-product"])
+      queryClient.invalidateQueries({queryKey:["update-product"]})
     }
   })
 }
@@ -55,7 +55,7 @@ const useDeleteProduct = (token: string) => {
       return productServices.deleteProduct(prodId, token)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["delete-product"])
+      queryClient.invalidateQueries({queryKey:["delete-product"]})
     }
   })
 }

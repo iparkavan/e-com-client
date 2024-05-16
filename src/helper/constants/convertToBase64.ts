@@ -1,20 +1,20 @@
-import { rejects } from 'assert'
-import { resolve } from 'path'
-import React from 'react'
+// import { rejects } from 'assert'
+// import { resolve } from 'path'
+// import React from 'react'
 
-const convertToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader()
-    fileReader.readAsDataURL(file)
+// const convertToBase64 = (file: Blob) => {
+//   return new Promise((resolve, reject) => {
+//     const fileReader = new FileReader()
+//     fileReader.readAsDataURL(file)
 
-    fileReader.onload(() => {
-      resolve(fileReader.result)
-    })
+//     fileReader.onload(() => {
+//       resolve(fileReader.result)
+//     })
 
-    fileReader.onerror((error) => {
-      reject(error)
-    })
-  })
-}
+//     fileReader.onerror((error: any) => {
+//       reject(error)
+//     })
+//   })
+// }
 
-export default convertToBase64
+// export default convertToBase64

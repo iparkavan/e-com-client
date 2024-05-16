@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Shop from "../../../components/shop/shop";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { useRouter } from "next/navigation";
-import { setIsAuth, setUserInfo } from "../../../store/features/authSlice";
+import { setUserInfo } from "../../../store/features/authSlice";
 
 const page = () => {
   // const dispatch = useAppDispatch();
