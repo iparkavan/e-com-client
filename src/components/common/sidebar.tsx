@@ -34,7 +34,7 @@ const Sidebar = () => {
 
   return (
     <div className="p-4">
-      <div className="h-full w-full">
+      <div className="h-screen w-full">
         {sidebarRoutes.map((item) => (
           <SidebarItem key={item.label} {...item} />
         ))}

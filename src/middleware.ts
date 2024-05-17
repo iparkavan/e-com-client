@@ -1,15 +1,6 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-import { useVerifyToken } from './hooks/auth-hooks'
-import axios from 'axios'
-import Cookies from "js-cookie";
-
  
-// This function can be marked `async` if using `await` inside
-
-// const protectedRoutes = ['/']
-// const publicRoutes = ['/login', '/signup']
-
 export async function middleware (request: NextRequest) {
 
   

@@ -14,7 +14,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [data, setData] = useState(null);
   const router = useRouter();
 
   const { mutate, error, isPending: isLoading } = useSignUp();
@@ -23,14 +23,6 @@ const Signup = () => {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      //   const { data } = await axios.post(REGISTER_THE_USER, {
-      // username,
-      // email,
-      // password,
-      //   });
-      //   console.log(data);
-      //   if (data) {
-      //   }
       mutate(
         {
           username,
@@ -40,7 +32,7 @@ const Signup = () => {
         {
           onSuccess: (data) => {
             console.log(data);
-            router.push("/login");
+            setData(data);
           },
         }
       );
@@ -53,49 +45,6 @@ const Signup = () => {
   };
 
   return (
-    // <div className="flex min-h-screen flex-col items-center justify-between p-24">
-    //   <form
-    //     className="flex flex-col gap-3 w-full items-center justify-center"
-    //     onSubmit={submitHandler}
-    //   >
-    //     <div className="flex flex-col">
-    //       <h1>Signup to your Account</h1>
-    //     </div>
-    //     <input
-    //       name="username"
-    //       className="p-2 rounded-xl bg-[#f4f6f6] w-[25%]"
-    //       type="text"
-    //       value={username}
-    //       placeholder="Username"
-    //       onChange={(e) => setUsername(e.target.value)}
-    //     />
-    //     <input
-    //       name="email"
-    //       className="p-2 rounded-xl bg-[#f4f6f6] w-[25%]"
-    //       type="email"
-    //       value={email}
-    //       placeholder="Email"
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-    //     <input
-    //       name="password"
-    //       className="p-2 rounded-xl bg-[#f4f6f6] w-[25%]"
-    //       type="password"
-    //       value={password}
-    //       placeholder="Password"
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     <div>
-    //       <button
-    //         className="text-white bg-teal-700 px-14 py-3 rounded-full hover:drop-shadow-xl active:bg-teal-900"
-    //         type="submit"
-    //       >
-    //         Sign Up
-    //       </button>
-    //     </div>
-    //   </form>
-    // </div>
-
     <div className="flex w-full items-center mt-32 justify-center gap-20">
       <Image className="w-[30%]" src={loginPageImage} alt="LogInImage" />
       <div className="min-w-[26%] rounded-3xl bg-white ">
@@ -137,7 +86,17 @@ const Signup = () => {
               Forgot Password
             </Link>
           </div>
-          <div className="mt-5 flex items-center justify-center">
+          {data && (
+            <p className="flex mt-2 justify-center p-2 item-center text-green-700 font-semibold">
+              {data.message}
+            </p>
+          )}
+          {error && (
+            <p className="flex mt-2 justify-center p-2 item-center text-red-700 font-semibold">
+              {error.message}
+            </p>
+          )}
+          <div className="mt-4 flex items-center justify-center">
             <button
               // disabled={isLoading}
               className={`bg-[#2f80ed] text-white p-3 ${
