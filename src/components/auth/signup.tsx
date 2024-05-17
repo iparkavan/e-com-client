@@ -93,10 +93,10 @@ const Signup = () => {
           )}
           {error && (
             <p className="flex mt-2 justify-center p-2 item-center text-red-700 font-semibold">
-              {error.message}
+              {error.response.data}
             </p>
           )}
-          <div className="mt-4 flex items-center justify-center">
+          <div className="mt-4 flex flex-col items-center justify-center">
             <button
               // disabled={isLoading}
               className={`bg-[#2f80ed] text-white p-3 ${
@@ -116,6 +116,13 @@ const Signup = () => {
                 <p className="text-xl font-semibold">Sign Up</p>
               )}
             </button>
+
+            <p className="flex mt-4 justify-center items-center">
+              Already have an account? &nbsp;
+              <span className="underline text-blue-400 cursor-pointer">
+                Sign In
+              </span>
+            </p>
           </div>
         </form>
       </div>
